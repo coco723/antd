@@ -70,3 +70,5 @@ storybook-static
 sh.exe.stackdump
 /snapshots
 /diffSnapshots
+
+ASK.md
