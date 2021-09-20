@@ -1,6 +1,6 @@
 {
-  "name": "@gyh/antd",
-  "version": "1.1.2",
+  "name": "@guoyanhong723/antd",
+  "version": "1.0.0",
   "description": "React组件库",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -23,13 +23,16 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "http://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org"
   },
   "keywords": [
     "react",
     "Component"
   ],
   "author": "guoyanhong",
+  "repository": {
+    "url": "https://github.com/coco723/antd"
+  },
   "license": "MIT",
   "dependencies": {
     "react": "^17.0.2",

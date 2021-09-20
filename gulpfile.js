@@ -26,14 +26,11 @@ const source = [
     '!components/**/e2e/*',
     '!components/**/unit/*',
 ];
-//C:\aproject\antd\components
 const base = path.join(process.cwd(), 'components');
 function getProjectPath(filePath) {
   return path.join(process.cwd(), filePath);
 }
-//C:\aproject\antd\lib
 const libDir = getProjectPath('lib');
-//C:\aproject\antd\es
 const esDir = getProjectPath('es');
 /**
  * 执行编译 

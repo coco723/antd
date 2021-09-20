@@ -754,7 +754,7 @@ module.exports = {
 .eslintrc.js
 
 ```js
-module.exports =
+module.exports = {}
 ```
 
 ## 5.3 .eslintignore
@@ -867,14 +867,14 @@ const source = [
   '!components/**/e2e/*',
   '!components/**/unit/*'
 ]
-//C:\aproject\antd\components
+//antd\components
 const base = path.join(process.cwd(), 'components')
 function getProjectPath (filePath) {
   return path.join(process.cwd(), filePath)
 }
-//C:\aproject\antd\lib
+// antd\lib
 const libDir = getProjectPath('lib')
-//C:\aproject\antd\es
+// antd\es
 const esDir = getProjectPath('es')
 /**
  * 执行编译
@@ -915,4 +915,35 @@ gulp.task('compile', gulp.parallel('compile-with-es', 'compile-with-lib'))
 
 # 十、持续集成
 
+travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 Github 上面的项目，只有有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器
+
 ## 10.1 .travis.yml
+
+```yaml
+language: node_js
+node_js:
+  - 'stable'
+cache:
+  directories:
+    - node_modules
+env:
+  - CI=true
+install:
+  - yarn config set registry https://registry.npm.taobao.org
+  - yarn install
+script:
+  - npm run build-storybook
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: storybook-static
+    on:
+      branch: master
+  - provider: npm
+    email: 1352118502@qq.com
+    api_key: '$NPM_TOKEN'
+    skip_cleanup: true
+    on:
+      branch: master
+```
